@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDB } from './config/Database.js';
 import userRoutes from './routes/userRoute.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -11,42 +13,14 @@ const app = express();
 // Middleware to parse JSON
 app.use(express.json());
 
-// Dynamic CORS Configuration
-const allowedOrigins = ['https://hashgo.vercel.app', 'https://hashgo-react.vercel.app']; // Add more allowed origins as needed
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true, // Allow cookies or other credentials
-    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-  })
-);
+// Convert ES module to get __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Explicitly handle preflight requests
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.sendStatus(200);
-});
-
-app.use((req, res, next) => {
-  console.log(`Request Origin: ${req.headers.origin}`);
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setTimeout(15000, () => {
-    logger.error(`Request timed out: ${req.method} ${req.originalUrl}`);
-    return res.status(504).json({ message: "Request Timeout" });
-  });
-  next();
+// Serve static files from frontend
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
 
 // Routes
