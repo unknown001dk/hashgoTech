@@ -1,0 +1,98 @@
+/* Modal container */
+.course-details-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+
+/* Modal content */
+.course-details-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Heading styles */
+.course-details-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.course-details-content h4 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Course outline */
+.course-outline {
+  margin-top: 20px;
+}
+
+.outline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.outline-item i {
+  font-size: 24px;
+  color: #5c5c5c;
+  margin-right: 15px;
+}
+
+.outline-text h5 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.outline-text p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-details-content {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .outline-item i {
+    font-size: 20px;
+  }
+  
+  .outline-text h5 {
+    font-size: 16px;
+  }
+  
+  .outline-text p {
+    font-size: 14px;
+  }
+}

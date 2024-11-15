@@ -1,0 +1,159 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Darker background for better contrast */
+  z-index: 9999;
+  padding: 20px;
+  overflow: hidden; /* Remove scrollbar from modal overlay */
+}
+
+.course-details-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Modal content */
+.course-modal-content {
+  background-color: #fff;
+  width: 90%;
+  max-width: 900px;
+  height: 90%;
+  overflow-y: auto; /* Enable vertical scrolling on content */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+}
+
+.course-modal-content:hover {
+  transform: scale(1); /* Modal grows slightly when hovered */
+}
+
+/* Close button styling */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff4081; /* Change color when hovered */
+}
+
+/* Course title and description */
+h3 {
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.course-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+/* Course outline section */
+.course-outline {
+  margin-top: 30px;
+  padding-left: 20px;
+}
+
+/* Individual course outline item */
+.outline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+.outline-item:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.outline-icon {
+  font-size: 35px;
+  margin-right: 20px;
+  color: #4caf50;
+  transition: transform 0.3s ease-in-out;
+}
+
+.outline-item:hover .outline-icon {
+  transform: rotate(15deg); /* Icon rotates when hovering over the item */
+}
+
+.outline-text {
+  flex: 1;
+}
+
+.outline-text h5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.outline-text p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0 0;
+  line-height: 1.5;
+}
+
+/* Course details header */
+.course-header {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course-header h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+.course-header p {
+  font-size: 16px;
+  color: #777;
+  line-height: 1.5;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Add space at the bottom for scrolling */
+.course-modal-content::after {
+  content: "";
+  display: block;
+  height: 10px;
+}

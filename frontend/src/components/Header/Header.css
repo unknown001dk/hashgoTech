@@ -1,0 +1,44 @@
+header {
+  background: linear-gradient(120deg, #4caf50, #66bb6a);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  /* border-radius: 0 0 20px 20px; */
+}
+header h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+header button {
+  background: linear-gradient(120deg, #66bb6a, #388e3c);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+header button:hover {
+  background: linear-gradient(120deg, #388e3c, #2e7d32);
+}
+
+/* Section headings with padding */
+h2 {
+  font-size: 2.4em;
+  margin-bottom: 25px;
+  color: #388e3c;
+}
+
+.container {
+  width: 85%;
+  margin: auto;
+  padding: 40px 0;
+}
